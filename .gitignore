@@ -1,25 +1,31 @@
-Library/
-Temp/
-Obj/
-Build/
-Builds/
-Logs/
-UserSettings/
+# ===== Unity 生成目录（缓存/临时文件，体积大且无需上传）=====
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
 MemoryCaptures/
+
+# ===== IDE / 编辑器 =====
 .vs/
 .idea/
-
-**/Library/
-**/Temp/
-**/Obj/
-**/Build/
-**/Builds/
-**/Logs/
-**/UserSettings/
-**/MemoryCaptures/
-**/.vs/
-**/.idea/
-
+.vscode/
 *.csproj
 *.sln
+*.user
+*.userosscache
+*.pidb.meta
+*.pdb.meta
+*.booproj
+
+# ===== 教程参考资料（约 260MB，不建议上传 GitHub）=====
+/Source/
+*.zip
+
+# ===== 其他大文件 / 打包产物 =====
 *.unitypackage
+*.apk
+*.exe
+*.dll.mdb

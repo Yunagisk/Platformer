@@ -9,39 +9,31 @@ public class Player : MonoBehaviour
     float jumpForce =400f;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private Animator anim;
+
     private bool isGrounded;
+    private float dirX = 0f;
     void Start()
     {
         rb= GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        dirX = Input.GetAxisRaw("Horizontal");
+        MoveAnimation();
         Move();
         Jump();
     }
     void Move()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(Vector2.left * moveForce);
-            spriteRenderer.flipX = true;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.AddForce(Vector2.right * moveForce);
-            spriteRenderer.flipX = false;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            spriteRenderer.flipY = false;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            spriteRenderer.flipY = true;
-        }
+        rb.velocity = new Vector2(dirX * moveForce, rb.velocity.y);
+
+        if (dirX > 0) spriteRenderer.flipX = false;
+        if (dirX < 0) spriteRenderer.flipX = true;
     }
     void Jump()
     {
@@ -58,5 +50,15 @@ public class Player : MonoBehaviour
             isGrounded = true;
         }
     }
-   
+   private void MoveAnimation()
+    {
+        if (dirX != 0)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+    }
 }
