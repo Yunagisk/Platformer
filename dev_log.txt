@@ -1,0 +1,9 @@
+26.9.19
+学了tile palette的基础用法+网格图铺场景
+铺地面+背景，给player加rigidbody+collider，给地面加collider实现在地面上停留，解决一启动就飞出屏幕问题（碰撞体面积设置过大）
+实现player移动控制，实现左右移动/跑步动画
+遗留问题：左右移动启动有延迟，跳跃高度有点高
+26.9.20
+增加跳跃/下落动画，优化动画切换算法（bool控制->int类型state控制)
+解决启动延迟问题：animation中idle<->running切换的Transition中setting的Transition Duration (s)（状态淡入淡出融合时间）默认为0.25，调为0延迟消失
+遗留问题：由于save出了问题导致相机位置和视图出现偏差
