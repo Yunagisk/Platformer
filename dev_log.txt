@@ -7,3 +7,7 @@
 增加跳跃/下落动画，优化动画切换算法（bool控制->int类型state控制)
 解决启动延迟问题：animation中idle<->running切换的Transition中setting的Transition Duration (s)（状态淡入淡出融合时间）默认为0.25，调为0延迟消失
 遗留问题：由于save出了问题导致相机位置和视图出现偏差
+26.9.27
+实现拾取物品和计分UI
+解决角色下坠时可以贴着平台停住的问题：加Platform Effector 2D组件，实现player在特定角度（这里为180从上往下）才可以触发碰撞
+解决预览和实际视图的偏差：将相机的Projection改为Orthographic（3D 用 Perspective），game视角可以直接看真实预览，滑动鼠标滚轮调整视图区域大小
